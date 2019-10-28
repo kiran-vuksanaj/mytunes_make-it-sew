@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#include<string.h>
+
 #include"llist.h"
 
 int songcmp(struct song_node *a, struct song_node *b){
@@ -60,4 +62,14 @@ void print_list(struct song_node *list) {
     list = list -> next;
   }
   printf("]\n");
+}
+
+struct song_node *free_list(struct song_node *list) {
+  struct song_node *next;
+  while(list) {
+    next = list -> next;
+    free(list);
+    list = next;
+  }
+  return list;
 }
