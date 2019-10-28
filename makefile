@@ -5,18 +5,18 @@ else
 endif
 
 all: main.o llist.o library.o
-  gcc -o tunes main.o llist.o library.o
+	gcc -o tunes main.o llist.o library.o
 main.o: main.c llist.h library.h
-  $(CC) -c main.c
+	$(CC) -c main.c
 llist.o: llist.c llist.h
-  $(CC) -c llist.c
+	$(CC) -c llist.c
 library.o: library.c library.h
-  $(CC) -c library.c
+	$(CC) -c library.c
 run:
-  ./tunes
+	./tunes
 grind:
-  valgrind ./tunes --leak-check=yes
+	valgrind ./tunes --leak-check=yes
 clean:
-  rm *.o
-  rm tunes
-  rm *~
+	rm *.o
+	rm tunes
+	rm *~
