@@ -51,3 +51,13 @@ struct song_node *sort_in(char * name, char * artist, struct song_node * list) {
   }
   return list;
 }
+
+void print_list(struct song_node *list) {
+  printf("[ ");
+  // increment list to next, stop when it equals null
+  while(list) {
+    printf("{%s - %s} ",list -> name, list -> artist);
+    list = list -> next;
+  }
+  printf("]\n");
+}
