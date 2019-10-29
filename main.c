@@ -51,19 +51,19 @@ int main() {
   printf("\nFind artist {frank ocean}: \n\t");
   struct song_node *artist = NULL;
   artist = find_artist("frank ocean", list);
-  print_list(artist);
+  print_node(artist);
 
   printf("\nFind artist {troye sivan}: \n\t");
   artist = find_artist("troye sivan", list);
-  print_list(artist);
+  print_node(artist);
 
   printf("\nFind artist {random}: \n\t");
   artist = find_artist("random", list);
-  print_list(artist);
+  print_node(artist);
 
   printf("\nFind artist {king princess}: \n\t");
   artist = find_artist("king princess", list);
-  print_list(artist);
+  print_node(artist);
 
   printf("\nFree list: \n\t");
   list = free_list(list);
