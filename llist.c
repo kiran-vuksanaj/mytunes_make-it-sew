@@ -115,3 +115,13 @@ struct song_node *free_list(struct song_node *list) {
   }
   return list;
 }
+
+struct song_node *find_artist(char *artist, struct song_node *list) {
+  while (list != NULL) {
+    if (artist == list->artist) {
+      return list;
+    }
+    list = list->next;
+  }
+  return NULL;
+}
