@@ -32,11 +32,7 @@ struct song_node *insert_front(char * name, char * artist, struct song_node * li
 }
 
 struct song_node *sort_in(char * name, char * artist, struct song_node * list) {
-  struct song_node *newsong = malloc( sizeof(struct song_node) );
-  newsong -> name = malloc( strlen(name) );
-  strcpy(newsong -> name,name);
-  newsong -> artist = malloc( strlen(name) );
-  strcpy(newsong -> artist,artist);
+  struct song_node *newsong = build_node(name,artist,NULL);
 
   struct song_node *prev = NULL;
   struct song_node *cur = list;
