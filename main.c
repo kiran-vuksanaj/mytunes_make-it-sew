@@ -1,10 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#include<time.h>
+
 #include"llist.h"
 #include"library.h"
 
 int main() {
+
+  srand( time(NULL) );
+
   printf("\tmyTunes: Project 0\nMKS65 - Systems Level Programming\nKiran Vuksanaj & Hilary Zen\n");
   struct song_node *list = NULL;
 
@@ -34,6 +39,14 @@ int main() {
   printf("\nSort in {prophet - king princess}: \n\t");
   list = sort_in("prophet","king princess",list);
   print_list(list);
+
+  int num_random = 15;
+  printf("Pick random song (x%d)\n\t",num_random);
+  while(num_random > 0) {
+    print_node( rand_song(list,6) );
+    printf("\n\t");
+    num_random--;
+  }
 
   printf("\nFree list: \n\t");
   list = free_list(list);
