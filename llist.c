@@ -63,10 +63,17 @@ void print_list(struct song_node *list) {
   printf("[ ");
   // increment list to next, stop when it equals null
   while(list) {
-    printf("{%s - %s} ",list -> name, list -> artist);
+    print_node(list);
     list = list -> next;
   }
   printf("]\n");
+}
+
+void print_node(struct song_node *node) {
+  if(node) {
+    printf("{%s - %s} ",node -> name, node -> artist);
+  }else
+    printf("{NULL} ");
 }
 
 struct song_node *find_song(char * name, char * artist, struct song_node *list) {
