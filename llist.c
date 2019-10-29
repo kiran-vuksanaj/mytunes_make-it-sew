@@ -25,9 +25,9 @@ int songcmp(struct song_node *a, struct song_node *b){
 struct song_node *insert_front(char * name, char * artist, struct song_node * list) {
   struct song_node *new_front = malloc( sizeof(struct song_node) );
   new_front -> name = malloc( strlen(name) );
-  strcpy(name,new_front -> name);
+  strcpy(new_front -> name,name);
   new_front -> artist = malloc( strlen(name) );
-  strcpy(artist,new_front -> artist);
+  strcpy(new_front -> artist,artist);
   // they're pointers to strs so strcpy is not necessary
   new_front -> next = list;
   return new_front;
@@ -36,9 +36,9 @@ struct song_node *insert_front(char * name, char * artist, struct song_node * li
 struct song_node *sort_in(char * name, char * artist, struct song_node * list) {
   struct song_node *newsong = malloc( sizeof(struct song_node) );
   newsong -> name = malloc( strlen(name) );
-  strcpy(name,newsong -> name)
+  strcpy(newsong -> name,name);
   newsong -> artist = malloc( strlen(name) );
-  strcpy(artist,newsong -> artist);
+  strcpy(newsong -> artist,artist);
 
   struct song_node *prev = NULL;
   struct song_node *cur = list;
@@ -80,6 +80,23 @@ struct song_node *find_song(char * name, char * artist, struct song_node *list) 
   }
   return list; // if here, you're returning null bc it's not in the list
 }
+
+struct song_node *rand_song(struct song_node *list, size_t size) {
+  // takes size as a variable
+  // bc otherwise it would have to be calculated each time ( O(n) )
+  // or you wouldn't know how far you're allowed to go randomly
+
+  // assumes srand() has been done!!
+
+  size_t song_ind = rand() % size;
+  while(song_ind > 0 && list->next) {
+    // "list->next" is checking whether we are at last elt(next would be null)
+    list = list -> next;
+    song_ind--;
+  }
+  return list;
+}
+
 struct song_node *free_list(struct song_node *list) {
   struct song_node *next;
   while(list) {
