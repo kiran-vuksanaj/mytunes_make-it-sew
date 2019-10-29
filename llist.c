@@ -24,8 +24,10 @@ int songcmp(struct song_node *a, struct song_node *b){
 
 struct song_node *insert_front(char * name, char * artist, struct song_node * list) {
   struct song_node *new_front = malloc( sizeof(struct song_node) );
-  new_front -> name = name;
-  new_front -> artist = artist;
+  new_front -> name = malloc( strlen(name) );
+  strcpy(name,new_front -> name);
+  new_front -> artist = malloc( strlen(name) );
+  strcpy(artist,new_front -> artist);
   // they're pointers to strs so strcpy is not necessary
   new_front -> next = list;
   return new_front;
@@ -33,8 +35,11 @@ struct song_node *insert_front(char * name, char * artist, struct song_node * li
 
 struct song_node *sort_in(char * name, char * artist, struct song_node * list) {
   struct song_node *newsong = malloc( sizeof(struct song_node) );
-  newsong -> name = name;
-  newsong -> artist = artist;
+  newsong -> name = malloc( strlen(name) );
+  strcpy(name,newsong -> name)
+  newsong -> artist = malloc( strlen(name) );
+  strcpy(artist,newsong -> artist);
+
   struct song_node *prev = NULL;
   struct song_node *cur = list;
   while(songcmp(newsong,cur) > 0) {
@@ -68,22 +73,19 @@ struct song_node *find_song(char * name, char * artist, struct song_node *list) 
   struct song_node tempnode;
   tempnode.name = name;
   tempnode.artist = artist;
+  // since its temporary im not worried about mallocing
   while(list){
     if(songcmp(&tempnode,list) == 0) return list;
     list = list -> next;
   }
   return list; // if here, you're returning null bc it's not in the list
 }
-struct song_node *find_artist(char *artist, struct song_node *list) {
-  while(list) {
-    if(strcmp(artist,list -> artist) == 0) return list;
-    list = list -> next;
-  }
-}
 struct song_node *free_list(struct song_node *list) {
   struct song_node *next;
   while(list) {
     next = list -> next;
+    free(list -> name);
+    free(list -> artist);
     free(list);
     list = next;
   }
