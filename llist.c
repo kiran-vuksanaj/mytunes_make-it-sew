@@ -156,7 +156,7 @@ struct song_node *free_list(struct song_node *list) {
 
 struct song_node *find_artist(char *artist, struct song_node *list) {
   while (list != NULL) {
-    if (artist == list->artist) {
+    if (strcmp(artist,list->artist)==0) {
       return list;
     }
     list = list->next;
