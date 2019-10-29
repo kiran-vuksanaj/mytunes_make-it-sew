@@ -65,6 +65,18 @@ int main() {
   artist = find_artist("king princess", list);
   print_node(artist);
 
+  printf("\n\nFind song {dirty deeds - acdc}: \n\t");
+  struct song_node *found_song = find_song("dirty deeds","acdc",list);
+  print_node(found_song);
+
+  printf("\nFind song {heaven - troye sivan}: \n\t");
+  found_song = find_song("heaven","troye sivan",list);
+  print_node(found_song);
+
+  printf("\nFind song {prophet - king princess}: \n\t");
+  found_song = find_song("prophet","king princess",list);
+  print_node(found_song);
+
   printf("\nFree list: \n\t");
   list = free_list(list);
   print_list(list);
