@@ -5,6 +5,7 @@
 
 #include"llist.h"
 
+// "private" method: to assist with sort_in
 int songcmp(struct song_node *a, struct song_node *b){
   // null is equivalent to greatest possible
   // since it goes to the end of the list
@@ -23,10 +24,7 @@ int songcmp(struct song_node *a, struct song_node *b){
 }
 
 struct song_node *insert_front(char * name, char * artist, struct song_node * list) {
-  struct song_node *new_front = malloc( sizeof(struct song_node) );
-  new_front -> name = malloc( strlen(name) );
-  strcpy(new_front -> name,name);
-  new_front -> artist = malloc( strlen(name) );
+  struct song_node *new_front = build_node(name,artist,list);
   strcpy(new_front -> artist,artist);
   // they're pointers to strs so strcpy is not necessary
   new_front -> next = list;
@@ -88,6 +86,31 @@ struct song_node *find_song(char * name, char * artist, struct song_node *list) 
   return list; // if here, you're returning null bc it's not in the list
 }
 
+struct song_node *remove_node(char *name, char *artist, struct song_node *list) {
+  struct song_node tempnode;
+  tempnode.name = name;
+  tempnode.artist = artist;
+  // again, since its temporary im not worried about mallocing
+  struct song_node *prev = NULL;
+  struct song_node *cur = list;
+  while( cur ) {
+    if(songcmp(&tempnode,cur) == 0){
+      if( prev ) {
+        prev -> next = cur -> next;
+        free_node(cur);
+        return list;
+      } else {
+        list = cur -> next;
+        free_node(cur);
+        return list;
+      }
+    }
+    prev = cur;
+    cur = cur -> next;
+  }
+  return list;
+}
+
 struct song_node *rand_song(struct song_node *list, size_t size) {
   // takes size as a variable
   // bc otherwise it would have to be calculated each time ( O(n) )
@@ -104,14 +127,29 @@ struct song_node *rand_song(struct song_node *list, size_t size) {
   return list;
 }
 
+struct song_node *build_node(char *name, char *artist, struct song_node *next) {
+  struct song_node *node = malloc( sizeof(struct song_node) );
+  node -> name = malloc( strlen(name) + 1);
+  strcpy(node -> name,name);
+  node -> artist = malloc( strlen(artist) + 1);
+  strcpy(node -> artist,artist);
+  node -> next = next;
+  return node;
+}
+
+struct song_node *free_node(struct song_node *node) {
+  // IMPORTANT; RETURNS NEXT, NOT NULL
+  struct song_node *out = node -> next;
+  free(node -> name);
+  free(node -> artist);
+  free(node);
+}
+
 struct song_node *free_list(struct song_node *list) {
   struct song_node *next;
   while(list) {
-    next = list -> next;
-    free(list -> name);
-    free(list -> artist);
-    free(list);
-    list = next;
+    list = free_node(list);
+    // increments to next inside of the method
   }
   return list;
 }

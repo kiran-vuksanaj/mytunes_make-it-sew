@@ -23,6 +23,10 @@ struct song_node *rand_song(struct song_node *list, size_t size);
 
 struct song_node *remove_node(char *name, char *artist, struct song_node *list);
 
+struct song_node *build_node(char *name, char *artist, struct song_node *list);
+
+struct song_node *free_node(struct song_node *node);
+
 struct song_node *free_list(struct song_node *list);
 
 #endif
