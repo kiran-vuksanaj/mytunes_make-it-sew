@@ -11,12 +11,12 @@ int main() {
   printf("\nEmpty List: \n\t");
   print_list(list);
 
-  printf("\nInsert {1950 - king princess}: \n\t");
-  list = insert_front("1950","king princess",list);
+  printf("\nSort in {1950 - king princess}: \n\t");
+  list = sort_in("1950","king princess",list);
   print_list(list);
 
-  printf("\nInsert {a history - bill wurtz}: \n\t");
-  list = insert_front("a history","bill wurtz",list);
+  printf("\nSort in {a history - bill wurtz}: \n\t");
+  list = sort_in("a history","bill wurtz",list);
   print_list(list);
 
   printf("\nSort in {dirty deeds - acdc}: \n\t");
