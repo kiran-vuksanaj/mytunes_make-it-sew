@@ -35,6 +35,23 @@ int main() {
   list = sort_in("prophet","king princess",list);
   print_list(list);
 
+  printf("\nFind artist {frank ocean}: \n\t");
+  struct song_node *artist = NULL;
+  artist = find_artist("frank ocean", list);
+  print_list(artist);
+
+  printf("\nFind artist {troye sivan}: \n\t");
+  artist = find_artist("troye sivan", list);
+  print_list(artist);
+
+  printf("\nFind artist {random}: \n\t");
+  artist = find_artist("random", list);
+  print_list(artist);
+
+  printf("\nFind artist {king princess}: \n\t");
+  artist = find_artist("king princess", list);
+  print_list(artist);
+
   printf("\nFree list: \n\t");
   list = free_list(list);
   print_list(list);
