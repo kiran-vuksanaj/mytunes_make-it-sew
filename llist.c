@@ -64,6 +64,22 @@ void print_list(struct song_node *list) {
   printf("]\n");
 }
 
+struct song_node *find_song(char * name, char * artist, struct song_node *list) {
+  struct song_node tempnode;
+  tempnode.name = name;
+  tempnode.artist = artist;
+  while(list){
+    if(songcmp(&tempnode,list) == 0) return list;
+    list = list -> next;
+  }
+  return list; // if here, you're returning null bc it's not in the list
+}
+struct song_node *find_artist(char *artist, struct song_node *list) {
+  while(list) {
+    if(strcmp(artist,list -> artist) == 0) return list;
+    list = list -> next;
+  }
+}
 struct song_node *free_list(struct song_node *list) {
   struct song_node *next;
   while(list) {
