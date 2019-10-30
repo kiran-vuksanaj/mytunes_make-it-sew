@@ -7,6 +7,8 @@
 #include"llist.h"
 #include"library.h"
 
+void test_llist();
+
 struct song_node *test_insert_front(struct song_node *list);
 struct song_node *test_remove_node(struct song_node *list);
 struct song_node *test_sort_in(struct song_node *list);
@@ -19,8 +21,13 @@ int main() {
 
   srand( time(NULL) );
 
-  printf("\tmyTunes: Project 0\nMKS65 - Systems Level Programming\nKiran Vuksanaj & Hilary Zen\n");
+  printf("myTunes: Project 0\nMKS65 - Systems Level Programming\nKiran Vuksanaj & Hilary Zen\n");
 
+  test_llist();
+}
+
+void test_llist() {
+  printf("\nTests on linked list functions \n");
   printf("\n// notes on testing: \n");
   printf("// print_node, print_list are tested througout\n");
   printf("// build_node is a helper method, used within insert_front and sort_in\n");
