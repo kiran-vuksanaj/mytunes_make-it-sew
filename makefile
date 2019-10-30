@@ -1,11 +1,11 @@
 ifeq ($(DEBUG),true)
-  CC = gcc -g
+	CC = gcc -g
 else
-  CC = gcc
+	CC = gcc
 endif
 
 all: main.o llist.o library.o
-	gcc -o tunes main.o llist.o library.o
+	$(CC) -o tunes main.o llist.o library.o
 main.o: main.c llist.h library.h
 	$(CC) -c main.c
 llist.o: llist.c llist.h
