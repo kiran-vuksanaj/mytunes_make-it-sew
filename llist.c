@@ -136,9 +136,11 @@ struct song_node *build_node(char *name, char *artist, struct song_node *next) {
 struct song_node *free_node(struct song_node *node) {
   // IMPORTANT; RETURNS NEXT, NOT NULL
   struct song_node *out = node -> next;
+  // printf("\n[Freeing node %p: {%s - %s} (song@%p, artist@%p)]\n",node,node -> name, node -> artist, node -> name, node -> artist);
   free(node -> name);
   free(node -> artist);
   free(node);
+  return out;
 }
 
 struct song_node *free_list(struct song_node *list) {
