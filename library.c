@@ -15,6 +15,7 @@ void insert_song(char * name, char * artist, struct song_node ** lib) {
 
 void print_letter(char letter, struct song_node ** lib) {
   char index = letter - 'a';
+  if(letter == 'z'+1) letter = '%'; // just for printing purposes, other symbol will be printed with %
   if(index < 0 || index >= 26) index = 26; // the default exterior letter
   printf("[%c]:\n\t", letter);
   struct song_node * list = lib[index];
@@ -24,8 +25,10 @@ void print_letter(char letter, struct song_node ** lib) {
 
 void print_lib(struct song_node ** lib) {
   int i;
-  for (i = 0; i < 26; i++) {
-    char letter = i + 97;
-    print_letter(letter, lib);
+  printf("[library @%p] \n",lib);
+  for (i = 0; i < 27; i++) {
+    char letter = i + 'a';
+    if(lib[i]) print_letter(letter, lib);
   }
+  printf("[end library]\n");
 }
