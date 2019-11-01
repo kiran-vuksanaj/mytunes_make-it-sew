@@ -17,8 +17,8 @@ void print_lib(struct song_node ** lib);
 
 struct song_node * shuffle(struct song_node ** lib);
 
-struct song_node * remove_song(char *name, char *artist, struct song_node ** lib);
+void remove_song(char *name, char *artist, struct song_node ** lib);
 
-struct song_node * remove_lib(struct song_node ** lib);
+void clear_lib(struct song_node ** lib);
 
 #endif
