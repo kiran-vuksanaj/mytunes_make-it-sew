@@ -27,6 +27,46 @@ void test_insert_song(struct song_node **library) {
   printf("Insert {doomsday - mf doom}:\n");
   insert_song("doomsday","mf doom",library);
   print_lib(library);
+  
+  printf("Insert {hot patootie - meat loaf}\n");
+  insert_song("hot patootie","meat loaf",library);
+  print_lib(library);
+
+  printf("Insert {dance apocalyptic - janelle monae}\n");
+  insert_song("dance apocalyptic","janelle monae",library);
+  print_lib(library);
+
+  printf("Insert {youngblood - 5 seconds of summer} (special character!)\n");
+  insert_song("youngblood","5 seconds of summer",library);
+  print_lib(library);
+
+  printf("Insert {any way the wind blows - anais mitchell}\n");
+  insert_song("any way the wind blows","anais mitchell",library);
+  print_lib(library);
+
+  printf("Insert {daisy - zedd}\n");
+  insert_song("daisy","zedd",library);
+  print_lib(library);
+
+  printf("Insert {pynk - janelle monae}\n");
+  insert_song("pynk","janelle monae",library);
+  print_lib(library);
+
+  printf("Insert {django jane - janelle monae}\n");
+  insert_song("django jane","janelle monae",library);
+  print_lib(library);
+
+  printf("Insert {ivy - frank ocean}\n");
+  insert_song("ivy","frank ocean",library);
+  print_lib(library);
+
+  printf("Insert {dreams - fleetwood mac}\n");
+  insert_song("dreams","fleetwood mac",library);
+  print_lib(library);
+
+  printf("Insert {pumped up kicks - foster the people} (goes between!)\n");
+  insert_song("pumped up kicks","foster the people",library);
+  print_lib(library);
 }
 void test_find_lib_song(struct song_node **library) {
   printf("\n====TESTING FIND SONG IN LIBRARY====\n");
