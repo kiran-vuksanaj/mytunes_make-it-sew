@@ -9,8 +9,7 @@
 void insert_song(char * name, char * artist, struct song_node ** lib) {
   char index = artist[0] - 'a';
   if(index < 0 || index >= 26) index = 26; // the default other index
-  struct song_node * list = lib[index];
-  sort_in(name, artist, list);
+  lib[index] = sort_in(name, artist, lib[index]);
 }
 
 void print_letter(char letter, struct song_node ** lib) {

@@ -17,22 +17,27 @@ void test_library(){
   test_shuffle(library);
   test_remove_song(library);
 
-  printf("Clear Library:\n");
+  printf("\n====CLEAR LIBRARY====\n");
   clear_lib(library);
   print_lib(library);
 }
 
 void test_insert_song(struct song_node **library) {
   printf("\n====TESTING INSERT SONG====\n");
+  printf("Insert {doomsday - mf doom}:\n");
+  insert_song("doomsday","mf doom",library);
+  print_lib(library);
 }
 void test_find_lib_song(struct song_node **library) {
+  printf("\n====TESTING FIND SONG IN LIBRARY====\n");
 
 }
 void test_find_lib_artist(struct song_node **library) {
-
+  printf("\n====TESTING FIND ARTIST IN LIBRARY====\n");
 }
 void test_shuffle(struct song_node **library) {
-
+  printf("\n====TESTING SHUFFLE====\n");
 }
 void test_remove_song(struct song_node **library) {
+  printf("\n====TESTING REMOVE SONG====\n");
 }
