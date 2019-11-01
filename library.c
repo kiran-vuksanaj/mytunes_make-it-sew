@@ -32,9 +32,16 @@ void print_lib(struct song_node ** lib) {
   printf("[end library]\n");
 }
 
-void clear_lib(struct song_node ** lib) {
+void zero_lib(struct song_node ** lib) {
   short i;
   for(i=0;i<27;i++){
     lib[i] = NULL;
+  }
+}
+
+void clear_lib(struct song_node ** lib) {
+  short i;
+  for(i=0;i<27;i++){
+    lib[i] = free_list(lib[i]);
   }
 }

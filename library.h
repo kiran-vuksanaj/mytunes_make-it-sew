@@ -21,4 +21,6 @@ void remove_song(char *name, char *artist, struct song_node ** lib);
 
 void clear_lib(struct song_node ** lib);
 
+void zero_lib(struct song_node ** lib);
+
 #endif
