@@ -15,7 +15,7 @@ void print_artist(char * artist, struct song_node ** lib);
 
 void print_lib(struct song_node ** lib);
 
-struct song_node * shuffle(struct song_node ** lib);
+struct song_node * shuffle(struct song_node ** lib,size_t n);
 
 void remove_song(char *name, char *artist, struct song_node ** lib);
 

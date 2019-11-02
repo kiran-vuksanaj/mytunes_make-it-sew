@@ -45,3 +45,30 @@ void clear_lib(struct song_node ** lib) {
     lib[i] = free_list(lib[i]);
   }
 }
+
+struct song_node *rand_song_libn(struct song_node **lib, size_t *lengths, size_t total) {
+  // assumed: lengths is 27 size_t's long
+
+  // weighted chance of choosing any given array
+  size_t letter_determiner = rand() % total;
+  short i = 0;
+  size_t n = 0;
+  while(i < 27 && n < letter_determiner) {
+    n += lengths[i];
+  }
+
+  return rand_songn(lib[i],lengths[i]);
+}
+
+struct song_node *shuffle(struct song_node **lib, size_t n) {
+  size_t lengths[27];
+  size_t total = 0;
+  short i;
+  for(i=0;i<27;i++){
+    lengths[i] = length_list(lib[i]);
+    total += lengths[i];
+  }
+
+  printf("one random song: ");
+  print_node(rand_song_libn(lib,lengths,total));
+}
