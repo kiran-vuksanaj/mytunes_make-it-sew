@@ -7,8 +7,8 @@
 void test_library(){
   // printf("we gonna test the libraryyyyyy dont worryyyyy\n");
   struct song_node * library[27];
-  clear_lib(library);
-  printf("Empty Library, cleared: \n");
+  zero_lib(library);
+  printf("Empty Library, zero'd: \n");
   print_lib(library);
 
   test_insert_song(library);
