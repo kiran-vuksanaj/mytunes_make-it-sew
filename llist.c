@@ -107,7 +107,20 @@ struct song_node *remove_node(char *name, char *artist, struct song_node *list) 
   return list;
 }
 
-struct song_node *rand_song(struct song_node *list, size_t size) {
+size_t length_list(struct song_node *list) {
+  size_t len = 0;
+  while(list) {
+    len++;
+    list = list -> next;
+  }
+  return len;
+}
+
+struct song_node *rand_song(struct song_node *list) {
+  return rand_songn(list,length_list(list));
+}
+
+struct song_node *rand_songn(struct song_node *list, size_t size) {
   // takes size as a variable
   // bc otherwise it would have to be calculated each time ( O(n) )
   // or you wouldn't know how far you're allowed to go randomly

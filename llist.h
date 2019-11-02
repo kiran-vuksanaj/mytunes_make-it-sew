@@ -19,7 +19,11 @@ struct song_node *find_song(char * name, char * artist, struct song_node *list);
 
 struct song_node *find_artist(char *artist, struct song_node *list);
 
-struct song_node *rand_song(struct song_node *list, size_t size);
+size_t length(struct song_node *list);
+
+struct song_node *rand_song(struct song_node *list);
+
+struct song_node *rand_songn(struct song_node *list, size_t size);
 
 struct song_node *remove_node(char *name, char *artist, struct song_node *list);
 

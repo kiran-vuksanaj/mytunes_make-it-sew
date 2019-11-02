@@ -163,7 +163,7 @@ struct song_node *test_rand_song(struct song_node *list, size_t size, int num_ra
   printf("\n====TESTING RAND SONG====\n");
   printf("Pick random song (x%d)\n\t",num_random);
   while(num_random > 0) {
-    print_node( rand_song(list,6) );
+    print_node( rand_song(list) );
     printf("\n\t");
     num_random--;
   }
