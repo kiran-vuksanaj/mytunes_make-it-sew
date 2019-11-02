@@ -82,13 +82,45 @@ void test_shuffle(struct song_node **library) {
   shuffle_sequence = shuffle(library,0);
   printf("Shuffle of length 0: \n");
   print_list(shuffle_sequence);
+  shuffle_sequence = free_list(shuffle_sequence);
 
   size_t shuffle_length = rand() % 20;
   shuffle_sequence = shuffle(library,shuffle_length);
   printf("\nShuffle of length %lu: \n",shuffle_length);
   print_list(shuffle_sequence);
+  shuffle_sequence = free_list(shuffle_sequence);
 
 }
 void test_remove_song(struct song_node **library) {
   printf("\n====TESTING REMOVE SONG====\n");
+  printf("\n(songs not included)\n");
+
+  printf("Remove {non-song - %%non-artist}\n");
+  remove_song("non song","%non-artist",library);
+
+  printf("Remove {moustache - man}\n");
+  remove_song("moustache","man",library);
+
+  printf("Remove {americans - janelle monae}\n");
+  remove_song("americans","janelle monae",library);
+
+
+  printf("\n(actual songs)\n");
+
+  printf("Remove {doomsday - mf doom}\n");
+  remove_song("doomsday","mf doom",library);
+
+  printf("Remove {daisy - zedd}\n");
+  remove_song("daisy","zedd",library);
+
+  printf("Remove {youngblood - 5 seconds of summer}\n");
+  remove_song("youngblood","5 seconds of summer",library);
+
+  printf("Remove {django jane - janelle monae} (built, non-literal)\n");
+  char name[20] = "django";
+  strcat(name," jane");
+  char artist[20] = "janelle";
+  strcat(artist," monae");
+  remove_song(name,artist,library);
+  print_lib(library);
 }

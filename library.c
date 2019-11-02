@@ -13,7 +13,7 @@ void insert_song(char * name, char * artist, struct song_node ** lib) {
 }
 
 void remove_song(char *name, char *artist, struct song_node **lib) {
-  char index = letter - 'a';
+  char index = artist[0] - 'a';
   if(index < 0 || index >= 26) index = 26;
 
   lib[index] = remove_node(name,artist,lib[index]);
