@@ -19,6 +19,20 @@ void remove_song(char *name, char *artist, struct song_node **lib) {
   lib[index] = remove_node(name,artist,lib[index]);
 }
 
+struct song_node *find_lib_song(char *name, char *artist, struct song_node **lib) {
+  char index = artist[0] - 'a';
+  if(index < 0 || index >= 26) index = 26;
+
+  return find_song(name,artist,lib[index]);
+}
+
+struct song_node *find_lib_artist(char *artist, struct song_node **lib) {
+  char index = artist[0] - 'a';
+  if(index < 0 || index >= 26) index = 26;
+
+  return find_artist(artist,lib[index]);
+}
+
 void print_letter(char letter, struct song_node ** lib) {
   char index = letter - 'a';
   if(letter == 'z'+1) letter = '%'; // just for printing purposes, other symbol will be printed with %
