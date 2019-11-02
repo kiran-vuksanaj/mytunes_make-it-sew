@@ -51,12 +51,13 @@ struct song_node *rand_song_libn(struct song_node **lib, size_t *lengths, size_t
 
   // weighted chance of choosing any given array
   size_t letter_determiner = rand() % total;
+  // printf("{size=%lu, determiner=%lu}\n",total,letter_determiner);
   short i = 0;
   size_t n = 0;
-  while(i < 27 && n < letter_determiner) {
+  while(i++ < 27 && n < letter_determiner) {
     n += lengths[i];
   }
-
+  i--; // counteract the last ++
   return rand_songn(lib[i],lengths[i]);
 }
 
@@ -69,6 +70,7 @@ struct song_node *shuffle(struct song_node **lib, size_t n) {
     total += lengths[i];
   }
 
-  printf("one random song: ");
+  // print_lib(lib);
   print_node(rand_song_libn(lib,lengths,total));
+  printf("\n");
 }
