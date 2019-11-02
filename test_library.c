@@ -23,48 +23,48 @@ void test_library(){
 }
 
 void test_insert_song(struct song_node **library) {
-  printf("\n====TESTING INSERT SONG====\n");
-  printf("Insert {doomsday - mf doom}:\n");
+  // printf("\n====TESTING INSERT SONG====\n");
+  // printf("Insert {doomsday - mf doom}:\n");
   insert_song("doomsday","mf doom",library);
-  print_lib(library);
-  
-  printf("Insert {hot patootie - meat loaf}\n");
+  // print_lib(library);
+
+  // printf("Insert {hot patootie - meat loaf}\n");
   insert_song("hot patootie","meat loaf",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {dance apocalyptic - janelle monae}\n");
+  // printf("Insert {dance apocalyptic - janelle monae}\n");
   insert_song("dance apocalyptic","janelle monae",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {youngblood - 5 seconds of summer} (special character!)\n");
+  // printf("Insert {youngblood - 5 seconds of summer} (special character!)\n");
   insert_song("youngblood","5 seconds of summer",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {any way the wind blows - anais mitchell}\n");
+  // printf("Insert {any way the wind blows - anais mitchell}\n");
   insert_song("any way the wind blows","anais mitchell",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {daisy - zedd}\n");
+  // printf("Insert {daisy - zedd}\n");
   insert_song("daisy","zedd",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {pynk - janelle monae}\n");
+  // printf("Insert {pynk - janelle monae}\n");
   insert_song("pynk","janelle monae",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {django jane - janelle monae}\n");
+  // printf("Insert {django jane - janelle monae}\n");
   insert_song("django jane","janelle monae",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {ivy - frank ocean}\n");
+  // printf("Insert {ivy - frank ocean}\n");
   insert_song("ivy","frank ocean",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {dreams - fleetwood mac}\n");
+  // printf("Insert {dreams - fleetwood mac}\n");
   insert_song("dreams","fleetwood mac",library);
-  print_lib(library);
+  // print_lib(library);
 
-  printf("Insert {pumped up kicks - foster the people} (goes between!)\n");
+  // printf("Insert {pumped up kicks - foster the people} (goes between!)\n");
   insert_song("pumped up kicks","foster the people",library);
   print_lib(library);
 }
@@ -77,6 +77,7 @@ void test_find_lib_artist(struct song_node **library) {
 }
 void test_shuffle(struct song_node **library) {
   printf("\n====TESTING SHUFFLE====\n");
+  shuffle(library,4);
 }
 void test_remove_song(struct song_node **library) {
   printf("\n====TESTING REMOVE SONG====\n");
