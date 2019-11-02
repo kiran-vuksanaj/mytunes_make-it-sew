@@ -72,7 +72,7 @@ struct song_node *shuffle(struct song_node **lib, size_t n) {
   }
   struct song_node *out = NULL;
   while( n-- > 0 ) {
-    song_node *chosen = rand_song_libn(lib,lengths,total);
+    struct song_node *chosen = rand_song_libn(lib,lengths,total);
     out = insert_front(chosen -> name, chosen -> artist, out);
     // making the choice to *duplicate* the node
     // im choosing this bc it seems dangerous to be able to
