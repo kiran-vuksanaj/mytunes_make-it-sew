@@ -37,52 +37,63 @@ void test_llist() {
 }
 
 struct song_node *test_insert_front(struct song_node *list) {
-  printf("\n====TESTING INSERT FRONT====\n");
+  printf("\n====TESTING INSERT FRONT (and length())====\n");
+  printf("Length of list: %lu\n",length_list(list));
 
   printf("\ninsert_front {cold war - cautious clay}: \n\t");
   list = insert_front("cold war","cautious clay",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\ninsert_front {just like love - perfume genius}: \n\t");
   list = insert_front("just like love","perfume genius",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\ninsert_front {aint together - king princess}: \n\t");
   list = insert_front("aint together","king princess",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\ninsert_front {attitude - leikeli47}: \n\t");
   list = insert_front("attitude","leikeli47",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\ninsert_front {money - leikeli47}: \n\t");
   list = insert_front("money","leikeli47",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   return list;
 }
 struct song_node *test_remove_node(struct song_node *list) {
-  printf("\n====TESTING REMOVE NODE====\n");
+  printf("\n====TESTING REMOVE NODE (and length())====\n");
 
   printf("Remove node {attitude - leikeli47}: \n\t");
   list = remove_node("attitude","leikeli47",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {cold war - cautious clay}: \n\t");
   list = remove_node("cold war","cautious clay",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {not a song - cautious clay}: [should stay same!]\n\t");
   list = remove_node("not a song","cautious clay",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {aint together - mr gern}: [should stay same!]\n\t");
   list = remove_node("aint together","mr gern",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {american pie - don mclean}: [should stay same!]\n\t");
   list = remove_node("american pie","don mclean",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {aint together - king princess}: [testing non-literals]\n\t");
   char songname[20] = "aint";
@@ -91,18 +102,22 @@ struct song_node *test_remove_node(struct song_node *list) {
   strcat(artistname," princess");
   list = remove_node(songname,artistname,list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {money - leikeli47}: \n\t");
   list = remove_node("money","leikeli47",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {just like love - perfume genius}: \n\t");
   list = remove_node("just like love","perfume genius",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   printf("\nRemove node {fake - song}: \n\t");
   list = remove_node("fake","song",list);
   print_list(list);
+  printf("\t(length %lu)\n",length_list(list));
 
   return list;
 }

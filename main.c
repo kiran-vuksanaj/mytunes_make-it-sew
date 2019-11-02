@@ -12,6 +12,6 @@ int main() {
 
   printf("myTunes: Project 0\nMKS65 - Systems Level Programming\nKiran Vuksanaj & Hilary Zen\n");
 
-  test_llist();
+  // test_llist();
   test_library();
 }
