@@ -12,6 +12,13 @@ void insert_song(char * name, char * artist, struct song_node ** lib) {
   lib[index] = sort_in(name, artist, lib[index]);
 }
 
+void remove_song(char *name, char *artist, struct song_node **lib) {
+  char index = letter - 'a';
+  if(index < 0 || index >= 26) index = 26;
+
+  lib[index] = remove_node(name,artist,lib[index]);
+}
+
 void print_letter(char letter, struct song_node ** lib) {
   char index = letter - 'a';
   if(letter == 'z'+1) letter = '%'; // just for printing purposes, other symbol will be printed with %
@@ -46,6 +53,7 @@ void clear_lib(struct song_node ** lib) {
   }
 }
 
+// private helper method, only used in shuffle
 struct song_node *rand_song_libn(struct song_node **lib, size_t *lengths, size_t total) {
   // assumed: lengths is 27 size_t's long
 
