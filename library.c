@@ -62,6 +62,7 @@ struct song_node *rand_song_libn(struct song_node **lib, size_t *lengths, size_t
 }
 
 struct song_node *shuffle(struct song_node **lib, size_t n) {
+  // calculate sizes of things so it doesn't need to be redone each time
   size_t lengths[27];
   size_t total = 0;
   short i;
@@ -69,8 +70,14 @@ struct song_node *shuffle(struct song_node **lib, size_t n) {
     lengths[i] = length_list(lib[i]);
     total += lengths[i];
   }
-
-  // print_lib(lib);
-  print_node(rand_song_libn(lib,lengths,total));
-  printf("\n");
+  struct song_node *out = NULL;
+  while( n-- > 0 ) {
+    song_node *chosen = rand_song_libn(lib,lengths,total);
+    out = insert_front(chosen -> name, chosen -> artist, out);
+    // making the choice to *duplicate* the node
+    // im choosing this bc it seems dangerous to be able to
+    // free the same node from multiple places
+    // (ie the shuffle list and the library itself)
+  }
+  return out;
 }
