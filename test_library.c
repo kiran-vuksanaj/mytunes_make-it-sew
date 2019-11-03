@@ -57,7 +57,6 @@ void test_insert_song(struct song_node **library) {
   printf("Insert {django jane - janelle monae}\n");
   insert_song("django jane","janelle monae",library);
   // print_lib(library);
-
   printf("Insert {ivy - frank ocean}\n");
   insert_song("ivy","frank ocean",library);
   // print_lib(library);
@@ -73,9 +72,27 @@ void test_insert_song(struct song_node **library) {
 void test_find_lib_song(struct song_node **library) {
   printf("\n====TESTING FIND SONG IN LIBRARY====\n");
 
+  printf("\nFind {dreams - fleetwood mac}: ");
+  print_node( find_lib_song("dreams","fleetwood mac",library) );
+  printf("\nFind {reality - fleetwood mac}: ");
+  print_node( find_lib_song("reality","fleetwood mac",library) );
+  printf("\nFind {youngblood - 5 seconds of summer}: ");
+  print_node( find_lib_song("youngblood","5 seconds of summer",library) );
+  printf("\nFind {pynk - janelle monae}: ");
+  print_node( find_lib_song("pynk","janelle monae",library) );
+  printf("\nFind {nonsense - &&&jfksd}: ");
+  print_node( find_lib_song("nonsense","&&&jfksd",library) );
 }
 void test_find_lib_artist(struct song_node **library) {
-  printf("\n====TESTING FIND ARTIST IN LIBRARY====\n");
+  printf("\n====TESTING FIND/PRINT ARTIST IN LIBRARY====\n");
+  printf("Search for [janelle monae]\n");
+  print_artist("janelle monae",library);
+  printf("Search for [zedd]\n");
+  print_artist("zedd",library);
+  printf("Search for [fleetwood mac] (stuff comes after them in f\n");
+  print_artist("fleetwood mac",library);
+  printf("Search for [the 1975] (not in library)\n");
+  print_artist("the 1975",library);
 }
 void test_shuffle(struct song_node **library) {
   printf("\n====TESTING SHUFFLE====\n");
