@@ -33,6 +33,18 @@ struct song_node *find_lib_artist(char *artist, struct song_node **lib) {
   return find_artist(artist,lib[index]);
 }
 
+void print_artist(char *artist, struct song_node **lib) {
+  struct song_node *start = find_lib_artist(artist,lib);
+  if(start) {
+    printf("Songs by %s: \n",artist);
+    while(start && strcmp(start -> artist,artist) == 0) {
+      printf("\t%s\n",start -> name);
+      start = start -> next;
+    }
+  }
+  else printf("No songs found by [%s]\n",artist);
+}
+
 void print_letter(char letter, struct song_node ** lib) {
   char index = letter - 'a';
   if(letter == 'z'+1) letter = '%'; // just for printing purposes, other symbol will be printed with %

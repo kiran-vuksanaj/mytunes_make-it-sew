@@ -7,7 +7,7 @@ void insert_song(char * name, char * artist, struct song_node ** lib);
 
 struct song_node * find_lib_song(char * name, char * artist, struct song_node ** lib);
 
-struct song_node * find_lib_artist(char * name, char * artist, struct song_node ** lib);
+struct song_node * find_lib_artist(char * artist, struct song_node ** lib);
 
 void print_letter(char letter, struct song_node ** lib);
 
